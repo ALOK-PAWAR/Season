@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Season Finder</h1>
+        <p>Enter a month (January to December):</p>
+        <input type="text" id="monthInput" placeholder="Enter month">
+        <button onclick="findSeason()">Find Season</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function findSeason() {
+            const month = document.getElementById('monthInput').value.toLowerCase();
+            let season = '';
+
+            switch (month) {
+                case 'december':
+                case 'january':
+                case 'february':
+                    season = 'Winter';
+                    break;
+                case 'march':
+                case 'april':
+                case 'may':
+                    season = 'Spring';
+                    break;
+                case 'june':
+                case 'july':
+                case 'august':
+                    season = 'Summer';
+                    break;
+                case 'september':
+                case 'october':
+                case 'november':
+                    season = 'Autumn';
+                    break;
+                default:
+                    season = 'Invalid month. Please enter a valid month name.';
+            }
+
+            document.getElementById('result').textContent = `The current season is ${season}.`;
+        }
+    </script>
+</body>
+</html>
